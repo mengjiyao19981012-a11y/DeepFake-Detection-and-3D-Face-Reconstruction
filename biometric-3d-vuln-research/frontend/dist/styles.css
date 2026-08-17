@@ -1,0 +1,105 @@
+/* ============================================================
+   Header scroll-driven background — no JS events
+   ============================================================ */
+.header-scroll {
+  animation: headerBg linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 200px;
+}
+
+@keyframes headerBg {
+  from {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  to {
+    background-color: rgba(94, 210, 156, 0.18);
+    box-shadow: 0 0 40px rgba(94, 210, 156, 0.5), 0 4px 20px rgba(94, 210, 156, 0.35), inset 0 0 30px rgba(94, 210, 156, 0.08);
+  }
+}
+
+/* ============================================================
+   Liquid Glass Card — Custom CSS for the border effect
+   ============================================================ */
+
+.liquid-glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Pseudo-element border frame */
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1.4px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Tech Stack Marquee — flowing black & white badges
+   ============================================================ */
+.marquee-track {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-left .marquee-inner {
+  display: flex;
+  animation: marqueeLeft 28s linear infinite;
+}
+
+.marquee-right .marquee-inner {
+  display: flex;
+  animation: marqueeRight 28s linear infinite;
+}
+
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff55;
+  white-space: nowrap;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.3s, border-color 0.3s;
+  user-select: none;
+}
+
+.tech-item:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Pause on hover */
+.marquee-track:hover .marquee-inner {
+  animation-play-state: paused;
+}

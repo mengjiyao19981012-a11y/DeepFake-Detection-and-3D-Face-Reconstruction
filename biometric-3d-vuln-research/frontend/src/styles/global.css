@@ -1,0 +1,61 @@
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #070b0a;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3a33;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5ed29c;
+}
+
+/* ── Utility ── */
+.cn-green {
+  color: #5ed29c;
+}
+.bg-cn-dark {
+  background: #070b0a;
+}
+
+/* ── Element Plus overrides ── */
+.el-button--primary {
+  --el-button-bg-color: #5ed29c;
+  --el-button-border-color: #5ed29c;
+  --el-button-hover-bg-color: #4cc08a;
+  --el-button-hover-border-color: #4cc08a;
+  --el-button-active-bg-color: #3dae78;
+  --el-button-text-color: #070b0a;
+}
+.el-upload-dragger {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px dashed rgba(255,255,255,0.15) !important;
+}
+.el-upload-dragger:hover {
+  border-color: #5ed29c !important;
+}
